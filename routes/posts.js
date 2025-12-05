@@ -8,13 +8,12 @@ const Post = require('../models/Post');
 // @access  Private
 router.post('/create', auth, async (req, res) => {
     try {
-        const { title, content, image, video } = req.body;
+        const { title, content, image } = req.body;
 
         const newPost = new Post({
             title,
             content,
             image,
-            video,
             author: req.user.id
         });
 
@@ -114,7 +113,6 @@ router.put('/:id', auth, async (req, res) => {
         post.title = title || post.title;
         post.content = content || post.content;
         post.image = image || post.image;
-        post.video = video || post.video;
 
         await post.save();
         res.json(post);

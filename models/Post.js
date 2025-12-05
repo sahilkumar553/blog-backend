@@ -14,10 +14,6 @@ const PostSchema = new mongoose.Schema({
         type: String, // URL to image
         default: ''
     },
-    video: {
-        type: String, // URL to video
-        default: ''
-    },
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
